@@ -8,12 +8,12 @@ public class Event {
 
     public Event() {}
 
-    public Event(String eventID, String title, String description, String date, String venue, String time) {
+    public Event(String eventID, String title, String description, String venue, String date, String time) {
         this.eventID = eventID;
         this.title = title;
         this.description = description;
-        this.date = date;
         this.venue = venue;
+        this.date = date;
         this.time = time;
     }
 
@@ -25,9 +25,9 @@ public class Event {
 
     public String getDescription() { return description; }
 
-    public String getDate() { return date; }
-
     public String getVenue() { return venue; }
+
+    public String getDate() { return date; }
 
     public String getTime() { return time; }
 

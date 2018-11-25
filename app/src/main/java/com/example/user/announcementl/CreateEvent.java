@@ -46,9 +46,10 @@ public class CreateEvent extends AppCompatActivity {
         editTextDesc = (EditText) findViewById(R.id.editTextDesc);
         editTextVenue = findViewById(R.id.editTextVenue);
         editTextDate = (EditText) findViewById(R.id.editTextDate);
+        editTextTime = (EditText) findViewById(R.id.editTextTime);
         postBtn = findViewById(R.id.postBtn);
         viewBtn = findViewById(R.id.viewBtn);
-        editTextTime = (EditText) findViewById(R.id.editTextTime);
+
 
         //list to store users
         Events = new ArrayList<>(); //should be in login, not used here.
@@ -68,7 +69,7 @@ public class CreateEvent extends AppCompatActivity {
             public void onClick(View view) {
                 if (view == viewBtn) {
                     finish();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), EventHome.class));
                 }
             }
         });
@@ -135,7 +136,7 @@ public class CreateEvent extends AppCompatActivity {
             String eventID = databaseEvents.push().getKey();
 
             //creating an Auction Draft Object
-            Event event = new Event (eventID, title, description, date, venue, time);
+            Event event = new Event (eventID, title, description, venue, date, time);
 
             //Saving the Auction Draft
             databaseEvents.child(eventID).setValue(event);

@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".CreateAnnouncement" />
         <activity android:name=".AnnouncementHome" />
-        <activity android:name=".CreateEvent"></activity>
+        <activity android:name=".CreateEvent" />
+        <activity android:name=".EventHome"></activity>
     </application>
 
 </manifest>
