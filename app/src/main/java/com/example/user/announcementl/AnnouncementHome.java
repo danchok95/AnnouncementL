@@ -1,9 +1,11 @@
 package com.example.user.announcementl;
 
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +33,7 @@ public class AnnouncementHome extends AppCompatActivity {
     ListView listViewAnnouncements;
     CardView cardView;
     TextView textViewTitle, textViewDesc;
+    Toolbar mToolbar;
 
 
     //our database reference object
@@ -43,6 +46,17 @@ public class AnnouncementHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcement_home);
+
+        Toolbar mToolbar= (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), CreateAnnouncement.class));
+            }
+        });
 
         //getting the reference of artists node
         databaseArtists = FirebaseDatabase.getInstance().getReference("announcements");
@@ -157,4 +171,6 @@ public class AnnouncementHome extends AppCompatActivity {
             }
         });
     }
+
+
 }

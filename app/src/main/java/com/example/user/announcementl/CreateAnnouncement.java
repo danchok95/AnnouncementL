@@ -21,7 +21,7 @@ import java.util.List;
 public class CreateAnnouncement extends AppCompatActivity {
 
     EditText editTextTitle, editTextDesc;
-    Button postBtn;
+    Button postBtn, viewBtn;
 
     List<Announcement> Announcements;
 
@@ -32,10 +32,6 @@ public class CreateAnnouncement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_announcement);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         //getting the reference of users node
         databaseAuctionDraft = FirebaseDatabase.getInstance().getReference("announcements");
 
@@ -43,6 +39,7 @@ public class CreateAnnouncement extends AppCompatActivity {
         editTextTitle = findViewById(R.id.editTextTitle);
         editTextDesc = (EditText) findViewById(R.id.editTextDesc);
         postBtn = findViewById(R.id.postBtn);
+        viewBtn = findViewById(R.id.viewBtn);
 
         //list to store users
         Announcements = new ArrayList<>(); //should be in login, not used here.
@@ -53,6 +50,16 @@ public class CreateAnnouncement extends AppCompatActivity {
             public void onClick(View view) {
                 if (view == postBtn) {
                     postAnnouncement();
+                }
+            }
+        });
+
+        viewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view == viewBtn) {
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), AnnouncementHome.class));
                 }
             }
         });

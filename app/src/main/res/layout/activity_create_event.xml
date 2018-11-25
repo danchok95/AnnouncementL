@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".CreateAnnouncement">
+    tools:context=".CreateEvent">
 
     <RelativeLayout
         android:layout_centerVertical="true"
@@ -18,12 +18,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/createAnnouncementLabel"
+            android:id="@+id/createEventLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:paddingBottom="30dp"
-            android:text="Create an announcement"
+            android:text="Create an event"
             android:textSize="20dp"
             android:textStyle="bold"
             android:layout_gravity="left"
@@ -31,7 +31,7 @@
 
         <TextView
             android:id="@+id/titleLabel"
-            android:layout_below="@+id/createAnnouncementLabel"
+            android:layout_below="@+id/createEventLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
@@ -72,19 +72,78 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
-            android:hint="Brand"
+            android:hint="Description"
             android:inputType="textMultiLine"
             android:textSize="13dp"
             android:gravity="left" />
 
+        <TextView
+            android:id="@+id/venueLabel"
+            android:layout_below="@+id/editTextDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="20dp"
+            android:text="Venue"
+            android:textSize="15dp"
+            android:layout_gravity="left"
+            />
+
+        <EditText
+            android:id="@+id/editTextVenue"
+            android:layout_below="@id/venueLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:hint="Venue"
+            android:inputType="textMultiLine"
+            android:textSize="13dp"
+            android:gravity="left" />
+
+        <TextView
+            android:id="@+id/dateLabel"
+            android:layout_below="@+id/editTextVenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="20dp"
+            android:text="Date"
+            android:textSize="15dp"
+            android:layout_gravity="left"
+            />
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_below="@id/dateLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:hint="Date"
+            android:inputType="text"
+            android:textSize="13dp"
+            android:gravity="left" />
+
+        <EditText
+            android:id="@+id/editTextTime"
+            android:layout_below="@+id/editTextDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:hint="Select Time..."
+            android:padding="15dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <Button
-        android:id="@+id/postBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextDesc"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        android:text="Post" />
+            android:id="@+id/postBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextTime"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp"
+            android:text="Post" />
 
         <Button
             android:id="@+id/viewBtn"
